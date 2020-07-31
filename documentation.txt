@@ -1,0 +1,204 @@
+This API was created and documented by ideal studio as a test project for restaurant, but it can be used to build a real Restaurant Web app and mobile app
+
+This API containts  route to
+-foods/
+-category/
+-user/
+-basket/
+-order/
+
+*************************************************************************************************************************************************************
+*************************************************************************************************************************************************************
+
+The food endpoint contains 
+-get
+-put
+-post
+-delete
+
+**********************************************************************
+
+We can get foods in the database via the GET method through the route
+	/api/foods  (to get all foods)
+	/api/foods/:id   (to get a single food by id)
+	/api/foods/search/:name		(to search food via name)
+	
+	the get method returns a gson with properties: 
+		    "id" : string,
+                    "name" : string,
+                    "price" : int,
+                    "category" : string,
+                    "details" : string,
+                    "image" : string url, 
+
+***********************************************************************
+
+We can post a food to the databse via the POST method through the route
+	/api/foods	(it requires: name(string value), price(number),
+			 category(string), details(string), 
+			image(image file) to be passed as body)
+
+***********************************************************************
+
+We can update a food item via the PUT method through the route
+	/api/foods/:id		(id is the id of the food)
+	this method requires the data to be updated to be parsed along the body
+	you can update any or all of the following by parsing it in the body
+		    "name" : string,
+                    "price" : int,
+                    "category" : string,
+                    "details" : string,
+                    "image" : image file,
+
+************************************************************************
+
+We can also delete a food from the data base via the DELETE method through the route
+	/api/foods/:id		(id is the food id)
+
+**************************************************************************
+
+
+**************************************************************************
+
+The category endpoint contains 
+-get
+-put
+-post
+-delete
+
+**********************************************************************
+
+We can get categories in the database via the GET method through the route
+	/api/category		(to get all categories)
+	/api/category/:id   (to get a single category by id)
+	/api/category/search/:name		(to search category via name)
+	
+	the get method returns a gson with properties: 
+		    "id" : string,
+                    "name" : string,
+                    "image" : string url, 
+
+***********************************************************************
+
+We can post a category to the databse via the POST method through the route
+	/api/category	(it requires: name(string value), 
+			image(image file) to be passed as body)
+
+***********************************************************************
+
+We can update a category item via the PUT method through the route
+	/api/category/:id		(id is the id of the category)
+	this method requires the data to be updated to be parsed along the body
+	you can update any or all of the following by parsing it in the body
+		    "name" : string,
+                    "image" : image file,
+
+************************************************************************
+
+We can also delete a category from the database via the DELETE method through the route
+	/api/category/:id		(id is the category id)
+
+**************************************************************************
+
+*************************************************************************************************************************************************************
+
+The user endpoint contains 
+-get
+-put
+-post
+-delete
+
+**********************************************************************
+
+We can get users in the database via the GET method through the route
+	/api/user  (to get all users)
+	/api/user/:id   (to get a single user by id)
+	
+	the get method returns a gson with properties: 
+		    "id" : string,
+                    "name" : string,
+                    "email" : string,
+                    "phonenumber" : string,
+                    "city" : string,
+                    "address" : string,
+                    "password" : string,
+                    "access" : string, (admin or user)
+                    "image" : string url, 
+
+***********************************************************************
+
+We can post a user to the databse via the POST method through the route
+	/api/user	("id" : string,
+                    	"name" : string,
+                    	"email" : string,
+                    	"phonenumber" : string,
+                    	"city" : string,
+                    	"address" : string,
+                    	"password" : string,
+                    	"access" : string, (admin or user)
+                    	"image" : image file,  to be passed as body)
+
+***********************************************************************
+
+We can update a user item via the PUT method through the route
+	/api/user/:id		(id is the id of the user)
+	this method requires the data to be updated to be parsed along the body
+	you can update any or all of the following by parsing it in the body
+		    
+                    	"name" : string,
+                    	"phonenumber" : string,
+                    	"city" : string,
+                    	"address" : string,
+                    	"password" : string,
+                    	"image" : image file,  to be passed as body)
+
+************************************************************************
+
+We can also delete a user from the data base via the DELETE method through the route
+	/api/user/:id		(id is the user id)
+
+**************************************************************************
+
+*************************************************************************************************************************************************************
+
+The basket endpoint contains 
+-get
+-put
+-post
+-delete
+
+**********************************************************************
+
+We can get foods in the basket via the GET method through the route
+	/api/basket/:userId   (to get all foods in the cart/basket for the current user)
+	
+	the get method returns a gson with properties: 
+		    "id" : string,
+                    "name" : string,
+                    "price" : number,
+                    "category" : string,
+                    "details" : string,
+		    "quantity" : number,
+                    "image" : string url, 
+
+***********************************************************************
+
+We can add a food to the cart/basket via the POST method through the route
+	/api/basket	(it requires: userId, foodId, quantity(integer value)
+					to be passed as gson body)
+
+***********************************************************************
+
+We can update a food itemin cart/basket via the PUT method through the route
+	/api/basket/:id		(id is the id of the food in cart/basket)
+	this method requires the data to be updated to be parsed along the body
+	you can only update the quantity of the food in  cart by parsing it in the body
+		    "quantity"
+
+************************************************************************
+
+We can also delete a food from the cart/basket via the DELETE method through the route
+	/api/basket/:cartId/:userId		(cartId is the food id in cart
+						userId is the current userId)
+
+**************************************************************************
